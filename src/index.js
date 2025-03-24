@@ -72,11 +72,16 @@ async function processCSV() {
   console.log(`Processing ${records.length} records...`)
 
   for (const record of records) {
-    if (record[CSV_INPUT_COLUMN]) {
-      console.log(`Processing record: ${record[CSV_INPUT_COLUMN].substring(0, 50)}...`)
-      const aiResponse = await callOpenRouterAPI(record[CSV_INPUT_COLUMN])
-      record.ai_response = aiResponse || 'Error: Failed to get AI response'
+    const inputValue = record[CSV_INPUT_COLUMN]
+    if (!inputValue || inputValue.trim() === '') {
+      console.log('Skipping empty record...')
+      record.ai_response = 'No input provided'
+      continue
     }
+
+    console.log(`Processing record: ${inputValue.substring(0, 50)}...`)
+    const aiResponse = await callOpenRouterAPI(inputValue)
+    record.ai_response = aiResponse || 'Error: Failed to get AI response'
   }
 
   const currentDate = new Date().toISOString().split('T')[0]
