@@ -33,7 +33,7 @@ async function callOpenRouterAPI(input) {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
-        'HTTP-Referer': 'https://github.com/yourusername/fill-csv-with-ai',
+        'HTTP-Referer': 'https://github.com/dawe35/fill-csv-with-ai',
         'X-Title': 'Fill CSV with AI'
       },
       body: JSON.stringify({

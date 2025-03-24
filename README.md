@@ -2,6 +2,8 @@
 
 This project uses AI to fill CSV files with generated content using the OpenRouter API.
 
+It will generate a new column based on your `input prompt + input column`. Each cell is processed one-by-one in a separate API call, so there is no size limit, but it can burn some credits haha.
+
 ## Prerequisites
 
 - Docker and Docker Compose
@@ -49,11 +51,3 @@ id,description,ai_response
 1,"The quick brown fox jumps over the lazy dog","Analysis: This is a pangram containing every letter of the English alphabet..."
 2,"To be, or not to be, that is the question","Analysis: This famous quote from Shakespeare's Hamlet explores themes of existence..."
 ```
-
-## Environment Variables
-
-- `OPENROUTER_API_KEY`: Your OpenRouter API key
-- `OPENROUTER_MODEL`: The AI model to use (e.g., anthropic/claude-3-opus-20240229)
-- `CSV_INPUT_FILE`: Path to your input CSV file
-- `CSV_INPUT_COLUMN`: Name of the column containing input text
-- `PROMPT_TEMPLATE`: Template for the AI prompt (use {input} as placeholder)
