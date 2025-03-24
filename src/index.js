@@ -1,6 +1,6 @@
 import { parse } from 'csv-parse'
 import { stringify } from 'csv-stringify'
-import { createReadStream, createWriteStream } from 'fs'
+import { createReadStream, createWriteStream, existsSync } from 'fs'
 import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
 import dotenv from 'dotenv'
@@ -84,8 +84,13 @@ async function processCSV() {
     record.ai_response = aiResponse || 'Error: Failed to get AI response'
   }
 
-  const currentDate = new Date().toISOString().split('T')[0]
-  const outputFile = `data/output_${currentDate}.csv`
+  const timestamp = new Date().toISOString().replace(/[:.]/g, '-')
+  const outputFile = `data/output_${timestamp}.csv`
+  
+  if (existsSync(outputFile)) {
+    throw new Error(`Output file ${outputFile} already exists. Please try again.`)
+  }
+
   const stringifier = stringify({ header: true })
   const writeStream = createWriteStream(outputFile)
 

@@ -1,6 +1,6 @@
-id,description,ai_response
-1,"The quick brown fox jumps over the lazy dog",
-2,"To be, or not to be, that is the question",
-3,"All that glitters is not gold",
-4,"A journey of a thousand miles begins with a single step",
-5,"The best way to predict the future is to create it" 
+id,description
+1,"The quick brown fox jumps over the lazy dog"
+2,"To be, or not to be, that is the question"
+3,"All that glitters is not gold"
+4,"A journey of a thousand miles begins with a single step"
+5,"The best way to predict the future is to create it"
