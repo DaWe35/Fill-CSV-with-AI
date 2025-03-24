@@ -79,7 +79,8 @@ async function processCSV() {
     }
   }
 
-  const outputFile = CSV_INPUT_FILE.replace('.csv', '_processed.csv')
+  const currentDate = new Date().toISOString().split('T')[0]
+  const outputFile = `output_${currentDate}.csv`
   const stringifier = stringify({ header: true })
   const writeStream = createWriteStream(outputFile)
 
