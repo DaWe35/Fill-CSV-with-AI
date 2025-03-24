@@ -85,7 +85,7 @@ async function processCSV() {
   }
 
   const currentDate = new Date().toISOString().split('T')[0]
-  const outputFile = `output_${currentDate}.csv`
+  const outputFile = `data/output_${currentDate}.csv`
   const stringifier = stringify({ header: true })
   const writeStream = createWriteStream(outputFile)
 
