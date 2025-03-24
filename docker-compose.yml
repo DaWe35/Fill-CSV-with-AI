@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  csv-filler:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - .:/app
+      - ./data:/app/data
+    env_file:
+      - .env
+    command: sh -c "npm install && npm start" 

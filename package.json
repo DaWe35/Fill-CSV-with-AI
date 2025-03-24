@@ -1,0 +1,15 @@
+{
+  "name": "fill-csv-with-ai",
+  "version": "1.0.0",
+  "description": "Fill CSV files with AI-generated content using OpenRouter API",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "csv-parse": "^5.5.3",
+    "csv-stringify": "^6.4.5",
+    "dotenv": "^16.4.5"
+  }
+} 
